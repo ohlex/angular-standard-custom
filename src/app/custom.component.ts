@@ -1,19 +1,19 @@
 import { Component, VERSION } from "@angular/core";
-import { StandardService } from "./standard.service";
+import { CustomService, CustomData } from "./custom.service";
 
 @Component({
   selector: "custom",
   template: `
     <p>This is {{ text }}.</p>
   `,
-  providers: [StandardService]
+  providers: [CustomService]
 })
 export class CustomComponent {
-  constructor(private service: StandardService) {}
+  constructor(private service: CustomService) {}
 
   ngOnInit() {
     this.text =
-      "a custom component with value " + this.service.getData().attribute2;
+      "a custom component with value " + this.service.getData().attribute3;
   }
 
   text = "";

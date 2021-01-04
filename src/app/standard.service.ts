@@ -1,11 +1,18 @@
-import { Injectable, Type } from '@angular/core';
+import { Injectable, Type } from "@angular/core";
 
-@Injectable()
+export interface StandardData {
+  attribute1: string;
+  attribute2: string;
+}
+
+@Injectable({
+  providedIn: "root"
+})
 export class StandardService {
   constructor() {}
 
-  getData() {
-    const data = {'attribute1': '1', 'attribute2': '2'};
+  getData() : StandardData {
+    const data = { attribute1: "1", attribute2: "2" };
     return data;
   }
 }
