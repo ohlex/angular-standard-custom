@@ -1,7 +1,7 @@
 import { Injectable, Type } from '@angular/core';
 
 @Injectable()
-export class BackendService {
+export class StandardService {
   constructor() {}
 
   getData() {

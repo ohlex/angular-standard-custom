@@ -1,15 +1,15 @@
 import { Component, VERSION } from "@angular/core";
-import { BackendService } from "./backend.service";
+import { StandardService } from "./standard.service";
 
 @Component({
   selector: "custom",
   template: `
     <p>This is {{ text }}.</p>
   `,
-  providers: [BackendService]
+  providers: [StandardService]
 })
 export class CustomComponent {
-  constructor(private service: BackendService) {}
+  constructor(private service: StandardService) {}
 
   ngOnInit() {
     this.text =
