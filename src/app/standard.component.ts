@@ -11,9 +11,18 @@ import { StandardService } from "./standard.service";
 export class StandardComponent {
   constructor(private service: StandardService) {}
 
+  text = "a";
+  
+
   ngOnInit() {
-    this.text = "a standard component with value " + this.service.getData().attribute1;
+    const obs = this.service.getObservable();
+    obs.subscribe(x => {
+      console.log(x);
+      this.text = "c";
+      this.text = 'a standard component with value ' + x["url"];
+    });
+    this.text = "b";
   }
 
-  text = "";
+ 
 }
