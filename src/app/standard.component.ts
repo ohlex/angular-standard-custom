@@ -19,7 +19,7 @@ export class StandardComponent {
     obs.subscribe(x => {
       console.log(x);
       this.text = "c";
-      this.text = 'a standard component with value ' + x["url"];
+      this.text = 'a standard component with value ' + x["data"]["person"][0]["name"];
     });
     this.text = "b";
   }

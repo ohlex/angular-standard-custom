@@ -1,5 +1,6 @@
 import { Injectable, Type } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { HttpHeaders } from '@angular/common/http';
 
 export interface StandardData {
   attribute1: string;
@@ -19,7 +20,14 @@ export class StandardService {
   }
 
   getObservable() {
-    const obs = this.http.get("https://httpbin.org/get");
+    //const obs = this.http.get("https://httpbin.org/get");
+
+    const myHttpHeaders: HttpHeaders = new HttpHeaders({
+      'x-hasura-admin-secret': 'REPLACE'
+    });
+
+    const obs = this.http.post('https://stunning-hookworm-89.hasura.app/v1/graphql','{"query": "{person {name}}"}', {headers: myHttpHeaders});
+
     return obs;
   }
 }
